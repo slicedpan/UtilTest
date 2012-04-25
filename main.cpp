@@ -9,17 +9,6 @@ int windowHeight = 600;
 
 BasicEngine* engine;
 
-void KeyboardHandler(int code, int state)
-{
-	if (state == GLFW_PRESS)
-	{
-		if (code == 'R')
-			ShaderManager::GetSingletonPtr()->ReloadShaders();
-		if (code == GLFW_KEY_ESC)
-			engine->Exit();
-	}
-}
-
 int main(int argc, char** argv)
 {
 	if (!glfwInit())
@@ -36,9 +25,7 @@ int main(int argc, char** argv)
 	{
 		printf("%s", glewGetErrorString(err));
 		return 1;
-	}	
-	
-	glfwSetKeyCallback(KeyboardHandler);
+	}		
 
 	engine = new TestEngine();
 	engine->Run();

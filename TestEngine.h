@@ -4,6 +4,7 @@
 #include "../GLUtils/GLFW/GLFWEngine.h"
 
 class Shader;
+class BasicTexture;
 
 class TestEngine :
 	public GLFWEngine
@@ -11,12 +12,14 @@ class TestEngine :
 public:
 	TestEngine(void);
 	~TestEngine(void);
-	void Update(TimeInfo timeInfo);
+	void Update(TimeInfo& timeInfo);
 	void Display();
 	void Setup();
+	void KeyPressed(int code);
+	void KeyReleased(int code);
 private:
 	Shader* textDraw;
-	bool keyState[256];
+	BasicTexture* fontTex;
 };
 
 #endif
