@@ -135,14 +135,15 @@ void TestEngine::Display()
 	QuadDrawer::DrawQuad(Vec2(-1.0, 0.8), Vec2(-0.8, 1.0));
 	glBindTexture(GL_TEXTURE_2D, next->GetTextureID(0));
 	QuadDrawer::DrawQuad(Vec2(-1.0, 0.6), Vec2(-0.8, 0.8));
+	glBindTexture(GL_TEXTURE_2D, DebugGetFontTexID());
+	QuadDrawer::DrawQuad(Vec2(-1.0, -1.0), Vec2(1.0, -0.8));
 
 	if (blah)
 	{		
 		//glGetError();	
 		blah = false;
-	}	
-	
-	PrintText(Vec2(0.0, 0.0), "blah", Colour::White);
+	}		
+
 	Vec2 screenSize(width, height);
 	sprintf(buf, "Equation: %s, timeStep: %f, spaceStep: %f", equationShaders[currentEq % equationShaders.size()]->GetName(), timeStep, spaceStep);
 	PrintText(screenSize, Vec2(-400, -460), buf, Colour::White);
@@ -228,7 +229,7 @@ void TestEngine::Setup()
 		shaders.Add(equationShaders[i]);
 	}
 
-	//SetTextShader(textDraw);
+	SetTextShader(textDraw);
 
 	ShaderManager::GetSingletonPtr()->CompileShaders();
 

@@ -1,6 +1,6 @@
 #version 330
 
-out float output;
+out float outputValue;
 smooth in vec2 fragTexCoord;
 
 uniform vec2 imageSize;
@@ -29,6 +29,6 @@ void main()
 	
 	float step = (timeStep * timeStep) / (spaceStep * spaceStep);
 	
-	output = 2 * el(x, y) - prevEl(x, y) + step * (el(x +1, y) - 4 * el(x, y) + el(x - 1, y) + el(x, y + 1) + el(x, y - 1)) + 0.5;	
+	outputValue = 2 * el(x, y) - prevEl(x, y) + step * (el(x +1, y) - 4 * el(x, y) + el(x - 1, y) + el(x, y + 1) + el(x, y - 1)) + 0.5;	
 }
 
