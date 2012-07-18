@@ -9,6 +9,8 @@ uniform sampler2D baseTex;
 void main()
 {	
 	//out_colour = vec4(1.0, 0.0, 0.0, 1.0);
-	out_colour = texture(baseTex, fragTexCoord);
+	vec2 tc = fragTexCoord;
+	tc.y *= -1;
+	out_colour = vec4(texture(baseTex, tc).xxx, 1.0);
 }
 

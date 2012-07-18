@@ -2,9 +2,13 @@
 #define TESTENGINE_H
 
 #include "../GLUtils/GLFW/GLFWEngine.h"
+#include <vector>
 
 class Shader;
 class BasicTexture;
+class FrameBufferObject;
+class FBOManager;
+class ShaderManager;
 
 class TestEngine :
 	public GLFWEngine
@@ -19,7 +23,21 @@ public:
 	void KeyReleased(int code);
 private:
 	Shader* textDraw;
-	BasicTexture* fontTex;
+	FrameBufferObject* last;
+	FrameBufferObject* current;
+	FrameBufferObject* next;
+	void LoadTexture();
+	bool simulate;
+	float spaceStep, timeStep;
+	void Step();
+	void CreateFBOs();
+	ShaderManager& shaders;
+	FBOManager& fbos;
+	std::vector<BasicTexture*> baseTextures;
+	int currentTexture;
+	std::vector<Shader*> equationShaders;
+	int currentEq;
+	int iterations;
 };
 
 #endif
