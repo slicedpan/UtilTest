@@ -80,6 +80,11 @@
   <ItemGroup>
     <ClInclude Include="TestEngine.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GLUtils\GLUtils.vcxproj">
+      <Project>{0a23b455-e6fd-4075-96d4-a14083e09a76}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
