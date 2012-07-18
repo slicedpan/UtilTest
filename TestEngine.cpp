@@ -135,6 +135,7 @@ void TestEngine::Display()
 	QuadDrawer::DrawQuad(Vec2(-1.0, 0.8), Vec2(-0.8, 1.0));
 	glBindTexture(GL_TEXTURE_2D, next->GetTextureID(0));
 	QuadDrawer::DrawQuad(Vec2(-1.0, 0.6), Vec2(-0.8, 0.8));
+	
 	glBindTexture(GL_TEXTURE_2D, DebugGetFontTexID());
 	QuadDrawer::DrawQuad(Vec2(-1.0, -1.0), Vec2(1.0, -0.8));
 
